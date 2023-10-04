@@ -38,9 +38,9 @@ class AgendaController {
 
   async atualizarAgenda(req: Request, res: Response) {
     const { id } = req.params;
-    const { data, nomePaciente } = req.body;
+    const { data, nomePcente } = req.body;
     try {
-      const agendaAtualizada = await AgendaService.atualizarAgenda(parseInt(id), data);
+      const agendaAtualizada = await AgendaService.atualizarAgenda(parseInt(id), nomePcente);
       res.json(agendaAtualizada);
     } catch (error) {
       res.status(500).json({ status: "error", message: (error as any).message });

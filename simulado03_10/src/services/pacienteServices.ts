@@ -7,14 +7,15 @@ class PacienteService {
 
     async criarPaciente(dados: any) {
         try {
-            const novaConsulta = await this.prisma.paciente.create({
+            const novoPaciente = await this.prisma.paciente.create({
                 data: {
                     nomePcente: dados.nomePcente,
                     senha: dados.senha,
                     usuario: dados.usuario,
                 },
                 
-            })
+            });
+            return novoPaciente;
         } catch (error) {
             console.log(error)
         }
